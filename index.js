@@ -37,6 +37,9 @@ if (err) { return onErr(err); }
         case '4':
             examples.fourth();
             break;
+        case '5':
+            examples.fifth();
+            break;
         default:
             console.log('\nExiting\n');
     }
