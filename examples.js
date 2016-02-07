@@ -1,8 +1,8 @@
-// var cheerio = require('cheerio');
 var Nightmare = require('nightmare');
-var Promise = require('q');
-var process = require('./process');
-var fs = require('fs');
+var Promise   = require('q');
+var process   = require('./process');
+var fs        = require('fs');
+var fo        = require('vo');
 
 
 // Using request & cheerio
@@ -39,6 +39,7 @@ exports.third = function(callback) {
 
 }
 
+// Taking screenshots with nightmare
 exports.fourth = function() {
 	console.log('\nTaking screenshots...');
 	var nightmare = new Nightmare()
@@ -66,4 +67,27 @@ exports.fourth = function() {
 		// Exit
 	});
 
+}
+
+// Open Google and perform a search
+exports.fifth = function() {
+	var Nightmare = require('nightmare');
+	var vo = require('vo');
+	 
+	vo(function* () {
+		var nightmare = Nightmare({ show: true });
+		var link = yield nightmare
+			.goto('http://www.google.com')
+			.type('input[title="Search"]', 'emberjs')
+			.click('input[value="Google Search"]')
+			.wait(500)
+			.evaluate(function () {
+				return document.getElementsByClassName('ac-21th')[0].href;
+			});
+		yield nightmare.end();
+		return link;
+	})(function (err, result) {
+	if (err) return console.log(err);
+		console.log(result);
+	});
 }
