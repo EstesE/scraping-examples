@@ -8,8 +8,8 @@ Show a few examples of screen scraping.
 
 1. Scrape static content with request.
 2. 
-3. Scrape dynamic content (Angular/Ember) using Nightmare/Phantom.
-4. Take screen shots of page as you programmatically interact with the page.
+3. Scrape dynamic content (Angular/Ember) using Nightmare.
+4. Take screen shots of page as you programmatically interact with the page using Nightmare.
 
 ## Installation
 
