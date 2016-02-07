@@ -25,6 +25,7 @@ Show a few examples of screen scraping.
 * https://www.npmjs.com/package/nightmare / http://www.nightmarejs.org/
 * https://www.npmjs.com/package/prompt
 * https://www.npmjs.com/package/phantom
+* https://www.npmjs.com/package/vo
 
 ## Debugging
 
