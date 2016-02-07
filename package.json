@@ -9,7 +9,12 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "cheerio": "^0.20.0",
     "colors": "^1.1.2",
-    "prompt": "^0.2.14"
+    "fs": "0.0.2",
+    "http": "0.0.0",
+    "nightmare": "^2.1.6",
+    "prompt": "^0.2.14",
+    "q": "^1.4.1"
   }
 }
