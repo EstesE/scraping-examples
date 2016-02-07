@@ -10,6 +10,7 @@ Show a few examples of screen scraping.
 2. 
 3. Scrape dynamic content (Angular/Ember) using Nightmare.
 4. Take screen shots of page as you programmatically interact with the page using Nightmare.
+5. Open Google and interact with page (WIP).
 
 ## Installation
 
