@@ -22,7 +22,7 @@ Show a few examples of screen scraping.
 * https://www.npmjs.com/package/q
 * https://www.npmjs.com/package/colors
 * https://www.npmjs.com/package/sleep
-* https://www.npmjs.com/package/nightmare
+* https://www.npmjs.com/package/nightmare / http://www.nightmarejs.org/
 * https://www.npmjs.com/package/prompt
 * https://www.npmjs.com/package/phantom
 
