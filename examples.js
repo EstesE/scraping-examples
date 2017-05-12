@@ -21,7 +21,7 @@ exports.third = function(callback) {
 	var nightmare = Nightmare();
 	Promise.resolve(nightmare
 		// .goto('http://www.apartmentratings.com/fl/tallahassee/studio-green-formerly-seminole-oaks-private-residence-hall-formerly-college-park-cash-hall_850222067432304/')
-		.goto('http://www.apartmentratings.com/nc/charlotte/davis-commons_704599290828269/')
+		.goto('http://www.apartmentratings.com/fl/tallahassee/studio-green-formerly-seminole-oaks-private-residence-hall_850222067432304/')
 		.evaluate(function() {
 		return document.getElementsByTagName('html')[0].innerHTML;
 	})).then(function(html) {
@@ -45,20 +45,19 @@ exports.fourth = function() {
 	var nightmare = new Nightmare()
 		.viewport(1280,1024)
 		.useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
-		.goto('http://www.aspensquare.com/texas/college-station/apartments/stadium-view')
+		.goto('http://popcard.rentcafe.com/TextUsWidget.aspx?dnis=8552868029')
 		.wait()
-		.screenshot('./screenshots/aspen1.png')
-		.click('div#openMessageWindow')
+		.screenshot('./screenshots/test1.png')
 		.wait(1000)
-		.screenshot('./screenshots/aspen2.png')
+		.type('#txtPhoneNumber', '5086129837')
+		.type('#txtFirstName', 'Enoch')
+		.screenshot('./screenshots/test2.png')
 		.wait(500)
-		.type('#msgFname', 'Enoch')
-		.type('#msgLname', 'Thomson')
-		.type('#msgEmail', 'enoch.thompson@gmail.com')
-		.type('#msgPhone', '801-212-3398')
-		.type('#msgComments', 'Howdy!')
-		.screenshot('./screenshots/aspen3.png')
+		.type('#txtLastName', 'Thomson')
+		.type('#txtQuestion', 'Interested in an apartment.')
+		.screenshot('./screenshots/test3.png')
 		.wait(500)
+		// .click('#btnReqeustTextus')
 	.run(function (err, nightmare) {
 		if (err) return console.log(err);
 		console.log('\nFinished taking screenshots!\n'.rainbow);

@@ -1,9 +1,9 @@
 var cheerio = require('cheerio');
 
 exports.process = function(value, callback) {
-
 	var $ = cheerio.load(value);
     var formerNames = [];
+    var similarProperties = [];
 
     var name = ($('h1').first().text()).replace($('.heading .formerly').text(), '').trim();
 
@@ -17,26 +17,30 @@ exports.process = function(value, callback) {
         }
     });
 
-    var complexAvg = $('.complexAverage strong').text().trim();
-    var cityAvg = $('.cityAverage strong').text().trim();
-    var numReviews = $('.numReviews strong').text().trim();
+    // var complexAvg = $('.complexAverage strong').text().trim(); // Old site
+    var complexAvg = $('#propertyAverage .score').text();
+    // var cityAvg = $('.cityAverage strong').text().trim(); // Old site
+    var cityAvg = $('.ARCityWCityScorePieChart .score').text();
+    // var numReviews = $('.numReviews strong').text().trim(); // Old site
+    var str = $('.viewAllReviews .viewAll').text();
+    var numReviews = str.replace(/\D/g, '');
     var currentDate = new Date();
 
-    // Get similar properties.
-    var similarProperties = [];
-    var simlen = $('.ARCWSimilarCommunities li h4').length;
-    $('.ARCWSimilarCommunities li').each(function(index) {
-        if(index < simlen/2) {
-            // var $x = cheerio.load($(this).value());
-            var $x = cheerio.load($(this)[0]);
-            var similar = {
-                name: $x('h4 .complexName').text().trim(),
-                complexAvg: $x('h4 .number').text().trim(),
-                address: $x('address').text().trim()
-            };
-            similarProperties.push(similar);
-        }
-    });
+    // // Get similar properties.
+    // var similarProperties = [];
+    // var simlen = $('.ARCWSimilarCommunities li h4').length;
+    // $('.ARCWSimilarCommunities li').each(function(index) {
+    //     if(index < simlen/2) {
+    //         // var $x = cheerio.load($(this).value());
+    //         var $x = cheerio.load($(this)[0]);
+    //         var similar = {
+    //             name: $x('h4 .complexName').text().trim(),
+    //             complexAvg: $x('h4 .number').text().trim(),
+    //             address: $x('address').text().trim()
+    //         };
+    //         similarProperties.push(similar);
+    //     }
+    // });
 
     // Build our JSON.
     var json = {
